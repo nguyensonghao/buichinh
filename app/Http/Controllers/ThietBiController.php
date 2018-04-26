@@ -34,7 +34,7 @@ class ThietBiController extends Controller {
 
 	public function chi_tiet_thiet_bi ($id) {
 		$data = ThietBi::where('id', '=', $id)->first();
-		return response()->json($data);	
+		return response()->json($data);
 	}
 
 	public function lap_phieu_de_nghi () {
@@ -59,20 +59,62 @@ class ThietBiController extends Controller {
 		return view('truong-phong-vat-tu-phe-duyet')->with('list', $data);
 	}
 
+	public function xu_ly_truong_phong_vat_tu_phe_duyet (Request $request) {
+		$phieu_id = $request->phieu_id;
+		$truong_phong_vat_tu_phe_duyet = $request->truong_phong_vat_tu_phe_duyet;
+		$ngay_phe_duyet = $request->ngay_phe_duyet;
+		PhieuDeNghi::where('id', '=', $phieu_id)
+			->update(['truong_phong_vat_tu_phe_duyet' => $truong_phong_vat_tu_phe_duyet, 'ngay_phe_duyet' => $ngay_phe_duyet, 'trang_thai' => 'truong_phong_vat_tu_phe_duyet']);
+		return redirect('truong-phong-vat-tu-phe-duyet');
+	}
+
 	public function giam_doc_phe_duyet () {
-		return view('giam-doc-phe-duyet');
+		$list = PhieuDeNghi::get_list_giam_doc_phe_duyet();
+		return view('giam-doc-phe-duyet')->with('list', $list);
+	}
+
+	public function xu_ly_giam_doc_phe_duyet (Request $request) {
+		$phieu_id = $request->phieu_id;
+		$giam_doc_phe_duyet = $request->giam_doc_phe_duyet;
+		PhieuDeNghi::where('id', '=', $phieu_id)
+			->update(['giam_doc_phe_duyet' => $giam_doc_phe_duyet, 'trang_thai' => 'giam_doc_phe_duyet']);
+		return redirect('giam-doc-phe-duyet');
 	}
 
 	public function thu_kho_tiep_nhan () {
-		return view('thu-kho-tiep-nhan');
+		$list = PhieuDeNghi::get_list_thu_kho_tiep_nhan();
+		return view('thu-kho-tiep-nhan')->with('list', $list);
+	}
+
+	public function xu_ly_thu_kho_tiep_nhan (Request $request) {
+		$phieu_id = $request->phieu_id;
+		PhieuDeNghi::where('id', '=', $phieu_id)
+			->update(['trang_thai' => 'thu_kho_tiep_nhan']);
+		return redirect('thu-kho-tiep-nhan');
 	}
 
 	public function thu_kho_xuat_kho () {
-		return view('thu-kho-xuat-kho');
+		$list = PhieuDeNghi::get_list_thu_kho_xuat_kho();
+		return view('thu-kho-xuat-kho')->with('list', $list);
+	}
+
+	public function xu_ly_thu_kho_xuat_kho (Request $request) {
+		$phieu_id = $request->phieu_id;
+		PhieuDeNghi::where('id', '=', $phieu_id)
+			->update(['trang_thai' => 'thu_kho_xuat_kho']);
+		return redirect('thu-kho-xuat-kho');
 	}
 
 	public function nhan_vat_tu () {
-		return view('nhan-vat-tu');
+		$list = PhieuDeNghi::get_list_nhan_vat_tu();
+		return view('nhan-vat-tu')->with('list', $list);
+	}
+
+	public function xu_ly_nhan_vat_tu (Request $request) {
+		$phieu_id = $request->phieu_id;
+		PhieuDeNghi::where('id', '=', $phieu_id)
+			->update(['trang_thai' => 'nhan_vat_tu']);
+		return redirect('nhan-vat-tu');
 	}
 
 }

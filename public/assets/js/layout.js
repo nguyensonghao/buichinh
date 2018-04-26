@@ -59,6 +59,54 @@ $(document).ready(function () {
         })
     })
 
+    $('.btn-giam-doc-phe-duyet').click(function () {
+        $('#modal-phe-duyet').modal('show');
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'chi-tiet-phieu-de-nghi/' + id,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                var form = $('#form-phe-duyet');
+                for (var key in data) {
+                    form.find('#' + key).val(data[key]);
+                }
+            }
+        })
+    })
+
+    $('.btn-tiep-nhan').click(function () {
+        $('#modal-tiep-nhan').modal('show');
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'chi-tiet-phieu-de-nghi/' + id,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                var form = $('#form-phe-duyet');
+                for (var key in data) {
+                    form.find('#' + key).val(data[key]);
+                }
+            }
+        })
+    })
+
+    $('.btn-xuat-kho').click(function () {
+        $('#modal-xuat-kho').modal('show');
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'chi-tiet-phieu-de-nghi/' + id,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                var form = $('#form-phe-duyet');
+                for (var key in data) {
+                    form.find('#' + key).val(data[key]);
+                }
+            }
+        })
+    })
+
     $('.btn-lap-phieu-de-nghi').click(function () {
         $('#modal-lap-phieu-de-nghi').modal('show');
         var id = $(this).data('id');

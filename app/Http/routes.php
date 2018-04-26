@@ -55,7 +55,7 @@ Route::get('/them-thiet-bi', [
 ]);
 
 Route::get('/chi-tiet-thiet-bi/{id}', [
-	'as' => 'them-thiet-bi', 
+	'as' => 'chi-tiet-thiet-bi', 
 	'uses' => 'ThietBiController@chi_tiet_thiet_bi'
 ]);
 
@@ -100,10 +100,22 @@ Route::get('/truong-phong-vat-tu-phe-duyet', [
 	'uses' => 'ThietBiController@truong_phong_vat_tu_phe_duyet'
 ]);
 
+Route::post('xu-ly-truong-phong-vat-tu-phe-duyet', [
+	'middleware' => 'auth.truongphongvattu',
+	'as' => 'xu-ly-truong-phong-vat-tu-phe-duyet', 
+	'uses' => 'ThietBiController@xu_ly_truong_phong_vat_tu_phe_duyet'
+]);
+
 Route::get('/giam-doc-phe-duyet', [
 	'middleware' => 'auth.giamdoc',
 	'as' => 'giam-doc-phe-duyet', 
 	'uses' => 'ThietBiController@giam_doc_phe_duyet'
+]);
+
+Route::post('/xu-ly-giam-doc-phe-duyet', [
+	'middleware' => 'auth.giamdoc',
+	'as' => 'xu-ly-giam-doc-phe-duyet', 
+	'uses' => 'ThietBiController@xu_ly_giam_doc_phe_duyet'
 ]);
 
 Route::get('/thu-kho-tiep-nhan', [
@@ -112,14 +124,32 @@ Route::get('/thu-kho-tiep-nhan', [
 	'uses' => 'ThietBiController@thu_kho_tiep_nhan'
 ]);
 
+Route::post('/xu-ly-thu-kho-tiep-nhan', [
+	'middleware' => 'auth.thukho',
+	'as' => 'xu-ly-thu-kho-tiep-nhan', 
+	'uses' => 'ThietBiController@xu_ly_thu_kho_tiep_nhan'
+]);
+
 Route::get('/thu-kho-xuat-kho', [
 	'middleware' => 'auth.thukho',
 	'as' => 'thu-kho-xuat-kho', 
 	'uses' => 'ThietBiController@thu_kho_xuat_kho'
 ]);
 
+Route::post('/xu-ly-thu-kho-xuat-kho', [
+	'middleware' => 'auth.thukho',
+	'as' => 'xu-ly-thu-kho-xuat-kho', 
+	'uses' => 'ThietBiController@xu_ly_thu_kho_xuat_kho'
+]);
+
 Route::get('/nhan-vat-tu', [
 	'middleware' => 'auth.kythuatvienvattu',
 	'as' => 'nhan-vat-tu', 
 	'uses' => 'ThietBiController@nhan_vat_tu'
+]);
+
+Route::post('xu-ly-nhan-vat-tu', [
+	'middleware' => 'auth.kythuatvienvattu',
+	'as' => 'xu-ly-nhan-vat-tu', 
+	'uses' => 'ThietBiController@xu_ly_nhan_vat_tu'
 ]);

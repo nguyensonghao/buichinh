@@ -50,13 +50,13 @@
 <div class="modal fade" id="modal-phe-duyet">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form id="form-phe-duyet">
+			<form id="form-phe-duyet" method="post" action="{{route('xu-ly-truong-phong-vat-tu-phe-duyet')}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Phê duyệt thiết bị</h4>
 				</div>
 				<div class="modal-body">
-					<input type="hidden" name="id" id="id">
+					<input type="hidden" name="phieu_id" id="phieu_id">
 					<div class="form-group col-md-6">
 						<label>Tên máy</label>
 						<input type="text" class="form-control" name="ten_may" id="ten_may" readonly>
@@ -112,7 +112,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary">Phê duyệt</button>
+					<button type="submit" class="btn btn-primary">Phê duyệt</button>
 				</div>
 			</form>
 		</div>
