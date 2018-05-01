@@ -30,7 +30,6 @@
 							<td class="center">{{$value->gia}} VNĐ</td>
 							<td class="center">
 								<div class="btn-group">
-									<button type="button" class="btn btn-primary btn-sm">Chi tiết</button>
 									<button type="button" class="btn btn-danger btn-sm btn-phe-duyet" data-id="{{$value->phieu_id}}">
 										Phê duyệt
 									</button>
@@ -74,12 +73,20 @@
 						<input type="text" class="form-control" name="khoa_su_dung" id="khoa_su_dung" readonly>
 					</div>
 					<div class="form-group col-md-6">
+						<label>Đơn vị lập phiếu đề nghi</label>
+						<input type="text" class="form-control" name="nguoi_lap_phieu" id="nguoi_lap_phieu" readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Ngày lập phiếu đề nghị</label>
+						<input type="date" class="form-control" name="ngay_lap_phieu" id="ngay_lap_phieu" readonly>
+					</div>
+					<div class="form-group col-md-6">
 						<label>Ngày phê duyệt</label>
-						<input type="date" class="form-control" name="ngay_phe_duyet" id="ngay_phe_duyet">
+						<input type="date" class="form-control" name="ngay_phe_duyet" id="ngay_phe_duyet" required>
 					</div>
 					<div class="form-group col-md-6">
 						<label>Người phê duyệt</label>
-						<input type="text" class="form-control" name="truong_phong_vat_tu_phe_duyet" id="truong_phong_vat_tu_phe_duyet">
+						<input type="text" class="form-control" name="truong_phong_vat_tu_phe_duyet" id="truong_phong_vat_tu_phe_duyet" required>
 					</div>
 					<div class="form-group col-md-6">
 						<label>Model</label>
@@ -105,10 +112,7 @@
 						<label>Ngày đưa vào sử dụng</label>
 						<input type="date" class="form-control" name="ngay_dua_vao_su_dung" id="ngay_dua_vao_su_dung" readonly>
 					</div>
-					<div class="form-group col-md-6">
-						<label>Ghi chú</label>
-						<textarea class="form-control" readonly name="ghi_chu" id="ghi_chu"></textarea>
-					</div>
+					<div class="clearfix"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>

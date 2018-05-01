@@ -83,6 +83,12 @@ Route::get('/lap-phieu-de-nghi', [
 	'uses' => 'ThietBiController@lap_phieu_de_nghi'
 ]);
 
+Route::get('/nhan-thiet-bi', [
+	'middleware' => 'auth.donvisudung',
+	'as' => 'nhan-thiet-bi', 
+	'uses' => 'ThietBiController@nhan_thiet_bi'
+]);
+
 Route::post('/xu-ly-lap-phieu-de-nghi', [
 	'middleware' => 'auth.donvisudung',
 	'as' => 'xu-ly-lap-phieu-de-nghi', 
@@ -152,4 +158,15 @@ Route::post('xu-ly-nhan-vat-tu', [
 	'middleware' => 'auth.kythuatvienvattu',
 	'as' => 'xu-ly-nhan-vat-tu', 
 	'uses' => 'ThietBiController@xu_ly_nhan_vat_tu'
+]);
+
+Route::get('lich-su-su-dung', [
+	'as' => 'lich-su-su-dung', 
+	'uses' => 'ThietBiController@lich_su_su_dung'
+]);
+
+Route::post('xu-ly-nhan-thiet-bi', [
+	'middleware' => 'auth.donvisudung',
+	'as' => 'xu-ly-nhan-thiet-bi', 
+	'uses' => 'ThietBiController@xu_ly_nhan_thiet_bi'
 ]);

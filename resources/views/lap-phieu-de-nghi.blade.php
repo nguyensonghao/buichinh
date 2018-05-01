@@ -27,7 +27,6 @@
 						<td class="center">{{$value->gia}} VNĐ</td>
 						<td class="center">
 							<div class="btn-group">
-								<button type="button" class="btn btn-primary btn-sm">Chi tiết</button>
 								<button type="button" class="btn btn-danger btn-sm btn-lap-phieu-de-nghi" data-id="{{$value->id}}">
 									Lập phiếu đề nghị
 								</button>
@@ -54,24 +53,32 @@
 						<input type="text" class="form-control" name="ten_may" id="ten_may" readonly>
 					</div>
 					<div class="form-group col-md-6">
-						<label>Số lượng</label>
-						<input type="number" class="form-control" name="so_luong" id="so_luong">
+						<label>Ngày lập phiếu</label>
+						<input type="date" class="form-control" name="ngay_lap_phieu" id="ngay_lap_phieu" required>
 					</div>
 					<div class="form-group col-md-6">
 						<label>Giá</label>
 						<input type="number" class="form-control" name="gia" id="gia" readonly>
 					</div>
 					<div class="form-group col-md-6">
-						<label>Khoa sử dụng</label>
-						<input type="text" class="form-control" name="khoa_su_dung" id="khoa_su_dung">
+						<label>Số lượng</label>
+						<input type="number" class="form-control" name="so_luong" id="so_luong" required>
 					</div>
 					<div class="form-group col-md-6">
 						<label>Model</label>
 						<input type="text" class="form-control" name="model" id="model" readonly>
 					</div>
 					<div class="form-group col-md-6">
+						<label>Người lập phiếu</label>
+						<input type="text" class="form-control" name="nguoi_lap_phieu" id="nguoi_lap_phieu" required>
+					</div>
+					<div class="form-group col-md-6">
 						<label>Hãng sản xuất</label>
 						<input type="text" class="form-control" name="hang_san_xuat" id="hang_san_xuat" readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Khoa sử dụng</label>
+						<input type="text" class="form-control" name="khoa_su_dung" id="khoa_su_dung">
 					</div>
 					<div class="form-group col-md-6">
 						<label>Nước sản xuất</label>
@@ -89,10 +96,7 @@
 						<label>Ngày đưa vào sử dụng</label>
 						<input type="date" class="form-control" name="ngay_dua_vao_su_dung" id="ngay_dua_vao_su_dung" readonly>
 					</div>
-					<div class="form-group col-md-6">
-						<label>Ghi chú</label>
-						<textarea class="form-control" readonly name="ghi_chu" id="ghi_chu"></textarea>
-					</div>
+					<div class="clearfix"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>

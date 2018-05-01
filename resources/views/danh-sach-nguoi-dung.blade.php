@@ -17,16 +17,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($users as $user)
+				@foreach ($users as $index => $user)
 					<tr>
-						<td class="center">1</td>
+						<td class="center">{{$index + 1}}</td>
 						<td class="center">{{$user->email}}</td>
 						<td class="center">{{$user->name}}</td>
 						<td class="center">{{$user->ten}}</td>
 						<td class="center">
 							<div class="btn-group">
 								<button type="button" class="btn btn-primary btn-sm btn-update-user" data-id="{{$user->id}}">Chỉnh sửa</button>
-								<button type="button" class="btn btn-danger btn-sm btn-delete-user" data-id="{{$user->id}}">Xóa</button>
 							</div>
 						</td>
 					</tr>
@@ -66,6 +65,11 @@
 						<div class="form-group">
 							<label for="">Tên sử dụng</label>
 							<input type="text" class="form-control" id="name" name="name">
+						</div>
+
+						<div class="form-group">
+							<label for="">Mật khẩu</label>
+							<input type="password" class="form-control" id="password" name="password">
 						</div>
 
 						<div class="form-group">

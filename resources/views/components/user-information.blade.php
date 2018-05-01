@@ -3,8 +3,11 @@
 	<p>Tài khoản: {{Auth::user()->email}}</p>
 	<p>Tên người dùng: {{Auth::user()->name}}</p>
 	<p>Chức vụ: {{\App\ChucVu::where('option_id', '=', Auth::user()->option_id)->first()->ten}}</p>
-	@if (Auth::user()->option_id == Config::get('constants.options.thukho'))
-		<ul class="list-group">
+	<ul class="list-group">
+		<li class="list-group-item @if (Request::path() == 'lich-su-su-dung') active @endif">
+			<a href="{{route('lich-su-su-dung')}}">Lịch sử sử dụng</a>
+		</li>
+		@if (Auth::user()->option_id == Config::get('constants.options.thukho'))
 			<li class="list-group-item @if (Request::path() == 'them-thiet-bi') active @endif">
 				<a href="{{route('them-thiet-bi')}}">Thêm thiết bị</a>
 			</li>
@@ -17,8 +20,17 @@
 			<li class="list-group-item @if (Request::path() == 'thu-kho-xuat-kho') active @endif"">
 				<a href="{{route('thu-kho-xuat-kho')}}">Danh sách xuất kho</a>
 			</li>
-		</ul>
-	@endif
+		@endif
+
+		@if (Auth::user()->option_id == Config::get('constants.options.donvisudung'))
+			<li class="list-group-item @if (Request::path() == 'lap-phieu-de-nghi') active @endif">
+				<a href="{{route('them-thiet-bi')}}">Lập phiếu đề nghị</a>
+			</li>
+			<li class="list-group-item @if (Request::path() == 'nhan-thiet-bi') active @endif"">
+				<a href="{{route('nhan-thiet-bi')}}">Nhận thiết bị</a>
+			</li>
+		@endif
+	</ul>
 	<a class="btn btn-danger btn-logout">Đăng xuất</a>
 	<button type="button" class="btn btn-success">Đổi mật khẩu</button>
 	<div class="modal fade" id="modal-confirm-logout">

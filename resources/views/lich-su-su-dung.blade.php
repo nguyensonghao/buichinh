@@ -1,10 +1,10 @@
 @extends('layout')
 
-@section('title') Nhận vật tư @endsection
+@section('title') Lịch sử sử dụng @endsection
 
 @section('content')
 <div class="col-md-9 no-padding">
-	<p class="title-page">Danh sách nhận vật tư</p>
+	<p class="title-page">Lịch sử sử dụng</p>
 	<form>
 		@if (count($list))
 			<table class="table table-bordered table-hover">
@@ -33,7 +33,7 @@
 							<td class="center">
 								<div class="btn-group">
 									<button type="button" class="btn btn-danger btn-sm btn-xuat-kho" data-id="{{$value->phieu_id}}">
-										Nhận vật tư
+										Chi tiết
 									</button>
 								</div>
 							</td>
@@ -51,7 +51,7 @@
 <div class="modal fade" id="modal-xuat-kho">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form id="form-phe-duyet" method="post" action="{{route('xu-ly-nhan-vat-tu')}}">
+			<form id="form-phe-duyet" method="post" action="{{route('xu-ly-nhan-thiet-bi')}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Nhận vật tư</h4>
@@ -73,14 +73,6 @@
 					<div class="form-group col-md-6">
 						<label>Khoa sử dụng</label>
 						<input type="text" class="form-control" name="khoa_su_dung" id="khoa_su_dung" readonly>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Ngày nhận vật tư</label>
-						<input type="date" class="form-control" name="ngay_nhan_vat_tu" id="ngay_nhan_vat_tu" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Người nhận vật tư</label>
-						<input type="text" class="form-control" name="nhan_vat_tu" id="nhan_vat_tu" required>
 					</div>
 					<div class="form-group col-md-6">
 						<label>Ngày lập phiếu đề nghị</label>
@@ -123,6 +115,22 @@
 						<input type="text" class="form-control" name="thu_kho_xuat_kho" id="thu_kho_xuat_kho" readonly>
 					</div>
 					<div class="form-group col-md-6">
+						<label>Ngày nhận vật tư</label>
+						<input type="date" class="form-control" name="ngay_nhan_vat_tu" id="ngay_nhan_vat_tu" readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Người nhận vật tư</label>
+						<input type="text" class="form-control" name="nhan_vat_tu" id="nhan_vat_tu" readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Ngày đơn vị sử dụng nhận thiết bị</label>
+						<input type="date" class="form-control" name="ngay_thu_kho_nhan_thiet_bi" id="ngay_thu_kho_nhan_thiet_bi" readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<label>Đơn vị sử dụng nhận thiết bị</label>
+						<input type="text" class="form-control" name="thu_kho_nhan_thiet_bi" id="thu_kho_nhan_thiet_bi" readonly>
+					</div>
+					<div class="form-group col-md-6">
 						<label>Model</label>
 						<input type="text" class="form-control" name="model" id="model" readonly>
 					</div>
@@ -150,7 +158,6 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-					<button type="submit" class="btn btn-primary">Nhận vật tư</button>
 				</div>
 			</form>
 		</div>
