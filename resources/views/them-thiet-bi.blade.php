@@ -39,7 +39,7 @@
 			<input type="text" class="form-control" name="thoi_gian_bao_hanh" id="thoi_gian_bao_hanh">
 		</div>
 		<div class="form-group col-md-6">
-			<label>Ngày đưa vào sử dụng</label>
+			<label>Ngày nhập kho</label>
 			<input type="date" class="form-control" name="ngay_dua_vao_su_dung" id="ngay_dua_vao_su_dung">
 		</div>
 		<div class="form-group col-md-6">
