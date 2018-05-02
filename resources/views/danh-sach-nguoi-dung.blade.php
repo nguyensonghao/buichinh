@@ -25,6 +25,7 @@
 						<td class="center">{{$user->ten}}</td>
 						<td class="center">
 							<div class="btn-group">
+								<button type="button" class="btn btn-danger btn-sm btn-delete-user" data-id="{{$user->id}}">Xóa</button>
 								<button type="button" class="btn btn-primary btn-sm btn-update-user" data-id="{{$user->id}}">Chỉnh sửa</button>
 							</div>
 						</td>
@@ -35,16 +36,19 @@
 	</form>
 	<div class="modal fade modal-delete-confirm" id="modal-delete-user">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Bạn có chắc muốn xóa người dùng này không?</h4>
+			<form method="post" action="{{route('xoa-nguoi-dung')}}">
+				<input type="hidden" name="id">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Bạn có chắc muốn xóa người dùng này không?</h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
+						<button type="submit" class="btn btn-primary">Có</button>
+					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
-					<button type="button" class="btn btn-primary">Có</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<div class="modal fade" id="modal-update-user">
