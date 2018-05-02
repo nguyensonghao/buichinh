@@ -26,6 +26,22 @@ $(document).ready(function () {
         })
     })
 
+    $('.btn-detail').click(function () {
+        $('#modal-chi-tiet-thiet-bi').modal('show');
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'chi-tiet-thiet-bi/' + id,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                var form = $('#form-lap-phieu-de-nghi');
+                for (var key in data) {
+                    form.find('#' + key).val(data[key]);
+                }
+            }
+        })
+    })
+
 	$('.btn-update-user').click(function () {
 		$('#modal-update-user').modal('show');
 		var id = $(this).data('id');

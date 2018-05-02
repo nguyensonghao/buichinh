@@ -28,7 +28,7 @@
 							<td class="center">{{$value->gia}} VNĐ</td>
 							<td class="center">
 								<div class="btn-group">
-									<button type="button" class="btn btn-primary btn-sm">Chi tiết</button>
+									<button type="button" class="btn btn-primary btn-sm btn-detail" data-id="{{$value->id}}">Chi tiết</button>
 									<button type="button" class="btn btn-danger btn-sm btn-delete-thiet-bi" data-id="{{$value->id}}">Xóa</button>
 								</div>
 							</td>
@@ -54,6 +54,63 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">Không</button>
 					<button type="button" class="btn btn-primary btn-delete-really-thiet-bi" data-id="0">Có</button>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-chi-tiet-thiet-bi">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form id="form-lap-phieu-de-nghi">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Lập phiếu đề nghị</h4>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" name="id" id="id">
+						<div class="form-group col-md-6">
+							<label>Tên máy</label>
+							<input type="text" class="form-control" name="ten_may" id="ten_may">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Giá</label>
+							<input type="number" class="form-control" name="gia" id="gia">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Model</label>
+							<input type="text" class="form-control" name="model" id="model">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Serinumber</label>
+							<input type="text" class="form-control" name="seri" id="seri">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Hãng sản xuất</label>
+							<input type="text" class="form-control" name="hang_san_xuat" id="hang_san_xuat">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Nước sản xuất</label>
+							<input type="text" class="form-control" name="nuoc_san_xuat" id="nuoc_san_xuat">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Năm sản xuất</label>
+							<input type="text" class="form-control" name="nam_san_xuat" id="nam_san_xuat">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Thời gian bảo hành</label>
+							<input type="text" class="form-control" name="thoi_gian_bao_hanh" id="thoi_gian_bao_hanh">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Ngày nhập kho</label>
+							<input type="date" class="form-control" name="ngay_dua_vao_su_dung" id="ngay_dua_vao_su_dung">
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+						<!-- <button type="submit" class="btn btn-primary">Thay đổi</button> -->
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
