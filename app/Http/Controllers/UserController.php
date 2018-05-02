@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\User;
+use App\ChucVu;
 
 class UserController extends Controller {
     
@@ -29,4 +31,25 @@ class UserController extends Controller {
 		return redirect('danh-sach-nguoi-dung');
 	}
 
+	public function them_nguoi_dung () {
+		return view('them-nguoi-dung')->with(['chucvu' => ChucVu::all()]);
+	}
+
+	public function xu_ly_them_nguoi_dung (Request $request) {
+		DB::table('users')->insert([
+            'email' => $request->tai_khoan,
+            'name' => $request->ten_nguoi_dung,
+            'fullname' => $request->ten_nguoi_dung,
+            'password' => $request->password,
+            'option_id' => $request->option
+        ]);
+
+		return redirect('danh-sach-nguoi-dung');
+	}
+
+	public function xoa_nguoi_dung (Request $request) {
+		$id = $request->id;
+		User::where('id', '=', $id)->delete();
+		return redirect('danh-sach-nguoi-dung');
+	}
 }

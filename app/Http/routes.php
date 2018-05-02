@@ -31,6 +31,24 @@ Route::get('/danh-sach-nguoi-dung', [
 	'uses' => 'UserController@danh_sach_nguoi_dung'
 ]);
 
+Route::get('/them-nguoi-dung', [
+	'middleware' => 'auth.admin',
+	'as' => 'them-nguoi-dung', 
+	'uses' => 'UserController@them_nguoi_dung'
+]);
+
+Route::post('/xu-ly-them-nguoi-dung', [
+	'middleware' => 'auth.admin',
+	'as' => 'xu-ly-them-nguoi-dung', 
+	'uses' => 'UserController@xu_ly_them_nguoi_dung'
+]);
+
+Route::post('xoa-nguoi-dung', [
+	'middleware' => 'auth.admin',
+	'as' => 'xoa-nguoi-dung', 
+	'uses' => 'UserController@xoa_nguoi_dung'
+]);
+
 Route::get('/chi-tiet-nguoi-dung/{id}', [
 	'middleware' => 'auth.admin',
 	'as' => 'chi-tiet-nguoi-dung', 

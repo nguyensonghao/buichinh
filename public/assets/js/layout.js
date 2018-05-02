@@ -4,6 +4,8 @@ $(document).ready(function () {
 	})
 
 	$('.btn-delete-user').click(function () {
+        var id = $(this).data('id');
+        $('#modal-delete-user').find('form input[name="id"]').val(id);
 		$('#modal-delete-user').modal('show');
 	})
 
@@ -121,6 +123,47 @@ $(document).ready(function () {
                 }
             }
         })
+    })
+
+    $('#form-add-user').validate({
+        rules: {
+            tai_khoan: {
+                required: true
+            },
+            option: {
+                required: true
+            },
+            ten_nguoi_dung: {
+                required: true
+            },
+            password: {
+                required: true,
+                minlength: 6,
+                maxlength: 30
+            },
+            password_confirm: {
+                equalTo: '#password'
+            }
+        },
+        messages: {
+            tai_khoan: {
+                required: 'Tài khoản không được để trống'
+            },
+            option: {
+                required: 'Chức vụ không được để trống'
+            },
+            ten_nguoi_dung: {
+                required: 'Tên người dùng không được để trống'
+            },
+            password: {
+                required: "Không được để trống mật khẩu",
+                minlength: "Mật khẩu phải lớn hơn 6 ký tự",
+                maxlength: "Mật khẩu phải nhỏ hơn 30 ký tự"
+            },
+            password_confirm: {
+                equalTo: 'Mật khẩu nhập lại không đúng'
+            }
+        }
     })
 
     $('#form-lap-phieu-de-nghi').validate({

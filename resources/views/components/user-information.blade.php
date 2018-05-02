@@ -30,6 +30,15 @@
 				<a href="{{route('nhan-thiet-bi')}}">Nhận thiết bị</a>
 			</li>
 		@endif
+
+		@if (Auth::user()->option_id == Config::get('constants.options.admin'))
+			<li class="list-group-item @if (Request::path() == 'danh-sach-nguoi-dung') active @endif">
+				<a href="{{route('danh-sach-nguoi-dung')}}">Danh sách người dùng</a>
+			</li>
+			<li class="list-group-item @if (Request::path() == 'them-nguoi-dung') active @endif"">
+				<a href="{{route('them-nguoi-dung')}}">Thêm người dùng</a>
+			</li>
+		@endif
 	</ul>
 	<a class="btn btn-danger btn-logout">Đăng xuất</a>
 	<button type="button" class="btn btn-success">Đổi mật khẩu</button>
