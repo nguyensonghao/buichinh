@@ -11,6 +11,7 @@
 				<tr>
 					<th class="center">#</th>
 					<th class="center">Tên</th>
+					<th class="center">Số lượng</th>
 					<th class="center">Model</th>
 					<th class="center">Serinumber</th>
 					<th class="center">Giá</th>
@@ -22,6 +23,7 @@
 					<tr>
 						<td class="center">{{$key + 1}}</td>
 						<td class="center">{{$value->ten_may}}</td>
+						<td class="center so-luong-{{$value->id}}">{{$value->so_luong_thiet_bi}}</td>
 						<td class="center">{{$value->model}}</td>
 						<td class="center">{{$value->seri}}</td>
 						<td class="center">{{$value->gia}} VNĐ</td>
@@ -41,7 +43,7 @@
 <div class="modal fade" id="modal-lap-phieu-de-nghi">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form id="form-lap-phieu-de-nghi" method="post" action="{{route('xu-ly-lap-phieu-de-nghi')}}">
+			<form id="form-lap-phieu-de-nghi" method="post" action="{{route('xu-ly-lap-phieu-de-nghi')}}" onSubmit="return checkValidQuantity()">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Lập phiếu đề nghị</h4>
@@ -106,4 +108,17 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="modal-error-less-quantity">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Số lượng thiết bị không đủ</h4>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>
 @endsection

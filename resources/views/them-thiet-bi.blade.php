@@ -15,6 +15,10 @@
 			<input type="number" class="form-control" name="gia" id="gia">
 		</div>
 		<div class="form-group col-md-6">
+			<label>Số lượng</label>
+			<input type="number" class="form-control" name="so_luong_thiet_bi" id="so_luong_thiet_bi">
+		</div>
+		<div class="form-group col-md-6">
 			<label>Model</label>
 			<input type="text" class="form-control" name="model" id="model">
 		</div>
@@ -46,6 +50,7 @@
 			<label>Ghi chú</label>
 			<textarea class="form-control" name="ghi_chu" id="ghi_chu"></textarea>
 		</div>
+		<div class="clearfix"></div>
 		<div class="form-group col-md-6">
 			<button type="submit" class="btn btn-primary">Thêm</button>
 		</div>

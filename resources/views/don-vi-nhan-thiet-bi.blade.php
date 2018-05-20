@@ -26,7 +26,7 @@
 							<td class="center">{{$index + 1}}</td>
 							<td class="center">{{$value->ten_may}}</td>
 							<td class="center">{{$value->model}}</td>
-							<td class="center">{{$value->so_luong}} VNĐ</td>
+							<td class="center">{{$value->so_luong}}</td>
 							<td class="center">{{$value->gia}} VNĐ</td>
 							<td class="center">{{$value->truong_phong_vat_tu_phe_duyet}}</td>
 							<td class="center">{{$value->giam_doc_phe_duyet}}</td>
@@ -58,6 +58,8 @@
 				</div>
 				<div class="modal-body">
 					<input type="hidden" name="phieu_id" id="phieu_id">
+					<input type="hidden" name="id" id="id">
+					<input type="hidden" name="so_luong_thiet_bi" id="so_luong_thiet_bi">
 					<div class="form-group col-md-6">
 						<label>Tên máy</label>
 						<input type="text" class="form-control" name="ten_may" id="ten_may" readonly>

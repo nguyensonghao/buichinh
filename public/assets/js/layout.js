@@ -1,3 +1,16 @@
+function checkValidQuantity () {
+    var modal = $('#modal-lap-phieu-de-nghi');
+    var quantity = modal.find('#so_luong').val();
+    var id = modal.find('#id').val();
+    var quantityThietBi = $('.so-luong-' + id).text();
+    if (parseInt(quantityThietBi) < parseInt(quantity)) {
+        $('#modal-error-less-quantity').modal('show');
+        return false;
+    } else {
+        return true;
+    }
+}
+
 $(document).ready(function () {
 	$('.btn-logout').click(function () {
 		$('#modal-confirm-logout').modal('show');
@@ -229,7 +242,10 @@ $(document).ready(function () {
             },
             ngay_dua_vao_su_dung: {
                 required: true
-            }       
+            },
+            so_luong_thiet_bi: {
+                required: true
+            }
         },
         messages: {
             ten_may: {
@@ -258,6 +274,9 @@ $(document).ready(function () {
             },
             ngay_dua_vao_su_dung: {
                 required: "Ngày đưa vào sử dụng không được để trống"
+            },
+            so_luong_thiet_bi: {
+                required: "Số lượng thiết bị không được để trống"
             }
         }
     })

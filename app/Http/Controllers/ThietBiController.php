@@ -15,7 +15,7 @@ class ThietBiController extends Controller {
 	}
 
 	public function xu_ly_them_thiet_bi (Request $request) {
-		$data = $request->only('ten_may', 'gia', 'model', 'seri', 'hang_san_xuat', 'nuoc_san_xuat', 'nam_san_xuat', 'thoi_gian_bao_hanh', 'ngay_dua_vao_su_dung', 'ghi_chu');
+		$data = $request->only('ten_may', 'gia', 'model', 'seri', 'hang_san_xuat', 'nuoc_san_xuat', 'nam_san_xuat', 'thoi_gian_bao_hanh', 'ngay_dua_vao_su_dung', 'ghi_chu', 'so_luong_thiet_bi');
 		if (ThietBi::create($data)) {
 			return redirect('danh-sach-thiet-bi');
 		} else {
@@ -133,8 +133,12 @@ class ThietBiController extends Controller {
 
 	public function xu_ly_nhan_thiet_bi (Request $request) {
 		$phieu_id = $request->phieu_id;
+		$id = $request->id;
 		$ngay_thu_kho_nhan_thiet_bi = $request->ngay_thu_kho_nhan_thiet_bi;
 		$thu_kho_nhan_thiet_bi = $request->thu_kho_nhan_thiet_bi;
+		$so_luong = $request->so_luong;
+		$so_luong_thiet_bi = $request->so_luong_thiet_bi;
+		ThietBi::where('id', '=', $id)->update(['so_luong_thiet_bi' => (int)$so_luong_thiet_bi - (int)$so_luong]);
 		PhieuDeNghi::where('id', '=', $phieu_id)
 			->update(['trang_thai' => 'nhan_thiet_bi', 'ngay_thu_kho_nhan_thiet_bi' => $ngay_thu_kho_nhan_thiet_bi, 'thu_kho_nhan_thiet_bi' => $thu_kho_nhan_thiet_bi]);
 		return redirect('nhan-thiet-bi');

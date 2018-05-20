@@ -15,6 +15,7 @@
 						<th class="center">Model</th>
 						<th class="center">Serinumber</th>
 						<th class="center">Giá</th>
+						<th class="center">Số lượng</th>
 						<th class="center">Hành động</th>
 					</tr>
 				</thead>
@@ -26,6 +27,7 @@
 							<td class="center">{{$value->model}}</td>
 							<td class="center">{{$value->seri}}</td>
 							<td class="center">{{$value->gia}} VNĐ</td>
+							<td class="center">{{$value->so_luong_thiet_bi}}</td>
 							<td class="center">
 								<div class="btn-group">
 									<button type="button" class="btn btn-primary btn-sm btn-detail" data-id="{{$value->id}}">Chi tiết</button>
@@ -71,6 +73,10 @@
 						<div class="form-group col-md-6">
 							<label>Tên máy</label>
 							<input type="text" class="form-control" name="ten_may" id="ten_may">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Số lượng</label>
+							<input type="number" class="form-control" name="so_luong_thiet_bi" id="so_luong_thiet_bi">
 						</div>
 						<div class="form-group col-md-6">
 							<label>Giá</label>
